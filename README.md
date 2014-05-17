@@ -16,7 +16,31 @@ tagbot.getSession(uri, function(err, session) {
 ```
 
 This library also has a Bot constructor, useful for creating
-a tagpro bot which can join groups, games, and the joiner.
+a tagpro bot which can join groups, games, and the joiner. This bot
+has listeners registered on each socket to record the state of the
+game/group.
+
+```
+var room = process.argv[2];
+var groupbot = Bot({
+  hostname: 'http://tagpro-pi.koalabeast.com',
+  room: room
+});
+
+// must have a session before connecting
+groupbot.on('session', function() {
+  var socket = groupbot.group.connect();
+  socket.on('connect', function() {
+    socket.emit('name', 'groupbot');
+    socket.emit('chat', 'Hi, I\'m group bot!');
+    setTimeout(function() {
+      socket.emit('chat', 'Goodbye!');
+      socket.disconnect();
+    }, 5e3);
+  });
+});
+
+```
 
 ## Usage
 
@@ -37,7 +61,7 @@ Retrieve a session token, necessary to open a socket connection.
 
 ## .Bot(options)
 
-Create a new Bot instance, which has useful functions to connect to games, groups, or the joiner.
+Create a new Bot instance, which has useful functions to connect to games, groups, or the joiner. On each socket, listeners will be registered to aid in keeping track of the game's state.
 
 ``` javascript
 // options
@@ -49,5 +73,4 @@ Create a new Bot instance, which has useful functions to connect to games, group
 
 # Credit
 
-Thanks goes out to [plane](/jj56) for creating [SpectaBot]() and for
-creating a socket.io-client with cookie option.
+Thanks goes out to [✈](https://github.com/jj56) for creating [SpectaBot](https://github.com/jj56/SpectaBot) and for creating a socket.io-client with cookie option.
