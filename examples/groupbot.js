@@ -6,13 +6,9 @@ var groupbot = Bot({
   room: room
 });
 
-
-groupbot.on('error', function(err) {
-  console.log(err);
-});
-groupbot.on('group socket', groupListeners);
 groupbot.group.connect();
 
+groupbot.on('group socket', groupListeners);
 function groupListeners() {
   var group = groupbot.group;
   var socket = group.socket;
