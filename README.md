@@ -3,25 +3,20 @@
 A library to create a bot for tagpro.
 
 ``` javascript
-var tagbot = require('../index');
-var uri = 'http://tagpro-pi.koalabeast.com/groups/lkasjdli';
+var tagbot = require('tagpro-bot');
+var room = process.argv[2];
+var uri = 'http://tagpro-pi.koalabeast.com'
 
 tagbot.getSession(uri, function(err, session) {
-  tagbot.connect(uri, function(err, socket) {
-    socket.on('connect', function() {
+  var socket = tagbot.connect(uri+':81/groups/'+room, session);
+  socket.on('connect', function() {
       socket.emit('chat', 'Hello groups!');
-    });
   });
 });
-
 ```
 
 This library also has a Bot constructor, useful for creating
 a tagpro bot which can join groups, games, and the joiner.
-
-## Install
-
-`npm intall tagpro-bot`
 
 ## Usage
 
