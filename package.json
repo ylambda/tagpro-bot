@@ -1,0 +1,16 @@
+{
+  "name": "tagpro-bot",
+  "version": "0.0.1",
+  "description": "A library to create bots in tagpro",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "cookie": "^0.1.2",
+    "socket.io-client": "git+https://github.com/jj56/socket.io-client.git#jj56ver"
+  },
+  "repository": "",
+  "author": "ylambda",
+  "license": "MIT"
+}
