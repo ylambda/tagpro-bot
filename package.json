@@ -1,6 +1,6 @@
 {
   "name": "tagpro-bot",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A library to create bots in tagpro",
   "main": "index.js",
   "scripts": {
@@ -10,7 +10,7 @@
     "cookie": "^0.1.2",
     "socket.io-client": "git+https://github.com/jj56/socket.io-client.git#jj56ver"
   },
-  "repository": "",
+  "repository": "https://github.com/brainss/tagpro-bot.git",
   "author": "ylambda",
   "license": "MIT"
 }
