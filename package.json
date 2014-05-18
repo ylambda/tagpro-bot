@@ -1,6 +1,6 @@
 {
   "name": "tagpro-bot",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "A library to create bots in tagpro",
   "main": "index.js",
   "scripts": {
